@@ -1,3 +1,3 @@
 function logo(){
-    location.href=window.location.origin+"/fweb/index.html";
+    location.href="https://treepot12.github.io/fweb/index.html";
 }
