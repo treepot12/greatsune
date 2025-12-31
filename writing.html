@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글쓰기</title>
+    <script src="logo.js"></script>
 </head>
 <body>
-    <a href="index.html"><h1>회사이름</h1></a>
+    <h1 onclick="logo()">회사이름</h1>
     <hr>
-    <textarea  rows="1" cols="50">
+    <textarea id="title"  rows="1" cols="50">
         제목
     </textarea>
     <hr>
-    <textarea  rows="30" cols="100">
+    <textarea id="content"  rows="30" cols="100">
         글을 입력하십시오.
     </textarea>
     <p></p>
-    <input type="submit" value="제출">
+    <input onclick="subm()" type="submit" value="제출">
 </body>
+<script>
+    function subm(){
+        let title = document.getElementById("title");
+        let text = document.getElementById("content");
+        // document.write(title.value)
+        // document.write(text.value)
+    }
+</script>
 </html>
