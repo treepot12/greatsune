@@ -11,7 +11,7 @@
     <h3>로그인</h3>
     <p><input id="id" type="password" placeholder="아이디"></p>
     <p><input id="pw" type="password" placeholder="비밀번호"></p>
-    <p><input type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
+    <p><input id="lo" type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
 </body>
 <script type="module">
     import { db } from "./app.js";
@@ -20,12 +20,7 @@
         collection(db, "login"),
         orderBy("createdAt", "desc")
     );
-    document.getElementById("title").addEventListener('keydown', function(e){
-        if (e.key == 'Enter'){
-            e.preventDefault();
-        }
-    })
-    document.getElementById("postform").addEventListener("submit", async(e) => {
+    document.getElementById("lo").addEventListener("submit", async(e) => {
         e.preventDefault();
 
         const lid = document.getElementById("id").value;

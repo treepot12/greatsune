@@ -11,27 +11,13 @@
     <h3>회원가입</h3>
     <p><input id="id" type="password" placeholder="아이디"></p>
     <p><input id="pw" type="password" placeholder="비밀번호"></p>
-    <p><input type="submit" value="제출"></p>
+    <p><input id="cj" type="submit" value="제출"></p>
 </body>
 <script type="module">
     import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
     import { db } from "./app.js";
-    document.getElementById("title").addEventListener('keydown', async(e) => {
-        e.preventDefault();
-
-        const id = document.getElementById("id").value;
-        const pw = document.getElementById("pw").value;
-
-        await addDoc(collection(db, "login"), {
-            id,
-            pw,
-            createdAt: serverTimestamp()
-        });
-
-        alert("저장됨");
-        location.href="https://treepot12.github.io/greatsune/";
-    })
-    document.getElementById("postform").addEventListener("submit", async(e) => {
+    
+    document.getElementById("cj").addEventListener("submit", async(e) => {
         e.preventDefault();
 
         const id = document.getElementById("id").value;
