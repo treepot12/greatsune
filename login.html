@@ -9,9 +9,11 @@
 <body>
     <h1 onclick="logo()">그레잇썬주식회사</h1>
     <h3>로그인</h3>
-    <p><input id="id" type="password" placeholder="아이디"></p>
-    <p><input id="pw" type="password" placeholder="비밀번호"></p>
-    <p><input id="lo" type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
+    <form id="logf">
+        <p><input id="id" type="password" placeholder="아이디"></p>
+        <p><input id="pw" type="password" placeholder="비밀번호"></p>
+        <p><input id="lo" type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
+    </form>
 </body>
 <script type="module">
     import { db } from "./app.js";
@@ -20,7 +22,7 @@
         collection(db, "login"),
         orderBy("createdAt", "desc")
     );
-    document.getElementById("lo").addEventListener("submit", async(e) => {
+    document.getElementById("logf").addEventListener("submit", async(e) => {
         e.preventDefault();
 
         const lid = document.getElementById("id").value;
