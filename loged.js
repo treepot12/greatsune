@@ -1,11 +1,11 @@
 export function login() {
-    localStorage.setItem("loged", "true");
+    sessionStorage.setItem("loged", "true");
 }
 
 export function logout() {
-    localStorage.removeItem("loged");
+    sessionStorage.removeItem("loged");
 }
 
 export function isLoged() {
-    return localStorage.getItem("loged") === "true";
+    return sessionStorage.getItem("loged") === "true";
 }
