@@ -1,26 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그레잇썬주식회사</title>
-    <h1>그레잇썬주식회사</h1> <p id="login" onclick="login()">로그인</p> <p id="logout" onclick="logot()">로그아웃</p>
 </head>
-<script type="module" src="app.js"></script>
 <body>
+    <h1 onclick="logo()">그레잇썬주식회사</h1> <p id="login">로그인</p> <p id="logout">로그아웃</p>
     <a href="board.html"><button>게시판</button></a>
 </body>
 <script type="module">
     import "./logo.js";
-    import { isLoged } from "./loged.js"
-    if (isLoged()){
-        document.getElementById("logout").style.display = "block";
-        document.getElementById("login").style.display = "none";
-    }
-    if (!isLoged()){
-        document.getElementById("logout").style.display = "none";
-        document.getElementById("login").style.display = "block";
-    }
+    import { auth } from "./auth.js";
+    import { onAuthStateChanged } 
+        from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { logout } from "./auth.js";
+    const inbtn = document.getElementById("login");
+    const outbtn = document.getElementById("logout");
+
+    inbtn.style.display = "none";
+    outbtn.style.display = "none";
+
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            outbtn.style.display = "block";
+            inbtn.style.display = "none";
+        } else {
+            outbtn.style.display = "none";
+            inbtn.style.display = "block";
+        }
+    });
+
+    inbtn.addEventListener("click", () => {
+        location.href = "https://treepot12.github.io/greatsune/login.html";
+    });
+
+    outbtn.addEventListener("click", async() => {
+        await logout();
+        location.reload();
+    });
 </script>
 </html>

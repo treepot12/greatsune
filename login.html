@@ -11,31 +11,23 @@
     <form id="logf">
         <p><input id="id" type="password" placeholder="아이디"></p>
         <p><input id="pw" type="password" placeholder="비밀번호"></p>
-        <p><input id="lo" type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
+        <p><input type="submit" value="로그인"></p><p onclick="clubjoin()">회원가입</p>
     </form>
 </body>
 <script type="module">
     import "./logo.js";
-    import { db } from "./app.js";
-    import { getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { login } from "./loged.js";
+    import { login } from "./auth.js";
     
     document.getElementById("logf").addEventListener("submit", async(e) => {
         e.preventDefault();
 
         const lid = document.getElementById("id").value;
         const lpw = document.getElementById("pw").value;
-        const q = query(
-            collection(db, "login"),
-            where("id","==",lid),
-            where("pw","==",lpw)
-        );
-        const snapshot = await getDocs(q);
-        if (!snapshot.empty) {
-            login();
+        try {
+            await login(lid, lpw);
             location.href="https://treepot12.github.io/greatsune/";
         }
-        else {
+        catch (err) {
             alert("잘못된 패스워드입니다.");
         }
             
