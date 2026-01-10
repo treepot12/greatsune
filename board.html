@@ -7,7 +7,7 @@
     <script src="logo.js"></script>
 </head>
 <body>
-    <h1 onclick="logo()">그레잇썬주식회사</h1>
+    <h1 onclick="logo()">그레잇썬주식회사</h1><p id="login" onclick="login()">로그인</p> <p id="logout" onclick="logot()">로그아웃</p>
     <ul id="postList"></ul>
     <a id="wr" href="writing.html" style="text-align: right;"><p>글쓰기</p></a>
 </body>
@@ -21,6 +21,16 @@
             location.href="https://treepot12.github.io/greatsune/login.html";
         }
     });
+
+    if (isLoged()){
+        document.getElementById("logout").style.display = "block";
+        document.getElementById("login").style.display = "none";
+    }
+    if (!isLoged()){
+        document.getElementById("logout").style.display = "none";
+        document.getElementById("login").style.display = "block";
+    }
+    
     const q = query(
         collection(db, "posts"),
         orderBy("createdAt", "desc")

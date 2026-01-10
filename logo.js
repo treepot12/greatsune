@@ -7,3 +7,7 @@ function clubjoin(){
 function login(){
     location.href="https://treepot12.github.io/greatsune/login.html";
 }
+import { logout } from "./loged.js"
+function logot(){
+    logout();
+}
