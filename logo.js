@@ -10,4 +10,5 @@ function login(){
 import { logout } from "./loged.js"
 function logot(){
     logout();
+    location.href="https://treepot12.github.io/greatsune/";
 }
