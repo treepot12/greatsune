@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그레잇썬주식회사</title>
-    <h1>그레잇썬주식회사</h1> <p onclick="login()">로그인</p>
+    <h1>그레잇썬주식회사</h1> <p id="login" onclick="login()">로그인</p> <p id="logout">로그아웃</p>
     <script src="logo.js"></script>
 </head>
 <script type="module" src="app.js"></script>
 <body>
     <a href="board.html"><button>게시판</button></a>
 </body>
+<script type="module">
+    import { isLoged } from "./loged.js"
+    if (isLoged()){
+        document.getElementById("logout").style.display = "block";
+        document.getElementById("login").style.display = "none";
+    }
+    if (!isLoged()){
+        document.getElementById("logout").style.display = "none";
+        document.getElementById("login").style.display = "block";
+    }
+</script>
 </html>
