@@ -60,20 +60,19 @@
 
     const snapshot = await getDocs(q);
     snapshot.forEach(doc => {
-        console.log(doc.id, doc.data());
         const title = doc.data().title;
         const content = doc.data().content;
-        const fileUrl = doc.data().fileUrl;
-        const filename = doc.data().filename;
+        const files = doc.data().files;
+        const filelink = files.map(file => `
+            <div>
+                <a href="${file.fileUrl}" target="_blank" download>
+                📎 ${file.filename}
+                </a>
+            </div>
+        `).join("");
         
         const li = document.createElement("li");
-        li.innerHTML = `<h3>${title}</h3><p>${content}</p>${
-          fileUrl
-            ? `<a href="${fileUrl}" target="_blank" download="${filename}">
-                 📎 ${filename ?? "첨부파일 다운로드"}
-               </a>`
-            : ""
-        }`;
+        li.innerHTML = `<h3>${title}</h3><p>${content}</p>${fileLinks}`;
 
         list.appendChild(li);
     });
