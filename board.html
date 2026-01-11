@@ -64,15 +64,15 @@
         const content = doc.data().content;
         const files = doc.data().files;
         const filelink = files.map(file => `
-            <div>
-                <a href="${file.fileUrl}" target="_blank" download>
-                📎 ${file.filename}
-                </a>
-            </div>
-        `).join("");
+        <div>
+          <a href="${file.fileUrl}" target="_blank" download>
+            📎 ${file.filename}
+          </a>
+        </div>
+    `).join("");
         
         const li = document.createElement("li");
-        li.innerHTML = `<h3>${title}</h3><p>${content}</p>${fileLinks}`;
+        li.innerHTML = `<h3>${title}</h3><p>${content}</p>${filelink}`;
 
         list.appendChild(li);
     });
