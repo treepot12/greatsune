@@ -62,9 +62,17 @@
     snapshot.forEach(doc => {
         const title = doc.data().title;
         const content = doc.data().content;
+        const fileUrl = doc.data().fileUrl;
+        const filename = doc.data().filename;
         
         const li = document.createElement("li");
-        li.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+        li.innerHTML = `<h3>${title}</h3><p>${content}</p>${
+          fileUrl
+            ? `<a href="${fileUrl}" target="_blank" download="${fileName}">
+                 📎 ${fileName ?? "첨부파일 다운로드"}
+               </a>`
+            : ""
+        }`;
 
         list.appendChild(li);
     });
