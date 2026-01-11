@@ -68,8 +68,8 @@
         const li = document.createElement("li");
         li.innerHTML = `<h3>${title}</h3><p>${content}</p>${
           fileUrl
-            ? `<a href="${fileUrl}" target="_blank" download="${fileName}">
-                 📎 ${fileName ?? "첨부파일 다운로드"}
+            ? `<a href="${fileUrl}" target="_blank" download="${filename}">
+                 📎 ${filename ?? "첨부파일 다운로드"}
                </a>`
             : ""
         }`;
