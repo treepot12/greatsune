@@ -31,7 +31,7 @@
 <script type="module">
     import "./logo.js";
     import { addDoc, collection, serverTimestamp, getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+    import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
     import { db, storage } from "./app.js";
     document.getElementById("title").addEventListener('keydown', function(e){
         if (e.key == 'Enter'){
