@@ -60,6 +60,7 @@
 
     const snapshot = await getDocs(q);
     snapshot.forEach(doc => {
+        console.log(doc.id, doc.data());
         const title = doc.data().title;
         const content = doc.data().content;
         const fileUrl = doc.data().fileUrl;
